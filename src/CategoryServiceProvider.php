@@ -25,5 +25,6 @@ class CategoryServiceProvider extends ServiceProvider
     {
         $this->app->make('Cecos\Category\CategoriesController');
         $this->loadViewsFrom(__DIR__.'/views/categories', 'categories');
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
     }
 }
