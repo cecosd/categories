@@ -1,0 +1,10 @@
+{
+    "name": "cecos/category",
+    "authors": [
+        {
+            "name": "Tsvetan",
+            "email": "tsvetan.y.petrov@gmail.com"
+        }
+    ],
+    "require": {}
+}
