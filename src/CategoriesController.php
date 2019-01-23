@@ -20,7 +20,7 @@ class CategoriesController extends Controller
     public function index()
     {
         return view('categories::categories.index', [
-            'items' => Category::all()
+            'items' => \Auth::user()->categories
         ]);
     }
 

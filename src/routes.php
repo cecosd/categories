@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'categories', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'categories', 'middleware' => ['web', 'auth']], function () {
     Route::get('/')
     ->uses('Cecos\Category\CategoriesController@index')
     ->name('categories');

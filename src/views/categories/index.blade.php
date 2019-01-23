@@ -31,6 +31,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Users</th>
                     <th scope="col">Created</th>
                     <th scope="col">Updated</th>
                     <th scope="col">Move to trash</th>
@@ -41,7 +42,14 @@
                 @forelse ($items as $item)
                     <tr>
                         <th scope="row">{{$item->id}}</th>   
-                        <th scope="row">{{$item->name}}</th>   
+                        <th scope="row">{{$item->name}}</th>
+                        <th scope="row">
+                            @forelse ($item->users as $user)
+                                {{$user->name}}
+                            @empty
+                                NO USERS
+                            @endforelse
+                        </th>   
                         <th scope="row">{{$item->created_at->format('d/m/Y')}}</th>   
                         <th scope="row">{{$item->updated_at->format('d/m/Y')}}</th>   
                         <th scope="row">

@@ -14,10 +14,16 @@ class Category extends Model
 
     public function setItem($request)
     {
-        return $this->create($request->all());
+        $category = $this->create($request->all());
+        $category->users()->attach(\Auth::user()->id);
     }
 
-    public function softDelete($item){
+    public function softDelete($item)
+    {
         return $item->delete();
+    }
+
+    public function users() {
+        return $this->belongsToMany('\App\User');
     }
 }
