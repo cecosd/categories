@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Http\Controllers\Controller;
 use Cecos\Category\Category;
+use Cecos\Category\CategoryRequest;
 
 class CategoriesController extends Controller
 {
@@ -23,9 +24,15 @@ class CategoriesController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
         $this->category->setItem($request);
+        return redirect()->route('categories');
+    }
+
+    public function destroy(Request $request, Category $category)
+    {
+        $this->category->softDelete($category);
         return redirect()->route('categories');
     }
 }
